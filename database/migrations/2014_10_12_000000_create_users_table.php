@@ -21,12 +21,17 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('kode_referal')->unique()->nullable();
+
+            $table->unsignedBigInteger('referrer_id')->nullable();
+            $table->foreign('referrer_id')->references('id')->on('users');
+
+
             $table->text('alamat');
             $table->string('kelurahan');
             $table->string('kecamatan');
             $table->string('kabupaten/kota');
             $table->string('provinsi');
+            $table->float('saldo')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

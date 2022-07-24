@@ -28,5 +28,37 @@
             <li><a href="/register">Register</a></li>
             @endauth
     </ul>
+
+    @auth
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">Dashboard</div>
+
+                        <div class="card-body">
+                            @if (session('status'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
+
+                            You are logged in!
+
+                            <ul class="list-group mt-3">
+                                <li class="list-group-item">Username: {{ auth()->user()->username }}</li>
+                                <li class="list-group-item">Email: {{ auth()->user()->email }}</li>
+                                <li class="list-group-item">Referral link: {{ auth()->user()->referral_link }}</li>
+                                <li class="list-group-item">Referrer: {{ auth()->user()->referrer->name ?? 'Not Specified' }}</li>
+                                <li class="list-group-item">Refferal count: {{ count(auth()->user()->referrals)  ?? '0' }}</li>
+                                <a href="">{{ auth()->user()->referrals }}</a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    @endauth
 </body>
 </html>

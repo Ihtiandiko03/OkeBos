@@ -27,6 +27,9 @@ return new class extends Migration
             $table->boolean('admin')->default(false);
             $table->boolean('kurir_antar')->default(false);
             $table->boolean('kurir_jemput')->default(false);
+            $table->string('kecamatan');
+            $table->string('kabupaten');
+            $table->float('saldo');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -85,6 +85,13 @@
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
+            {{-- <div class="form-floating">
+                <input type="text" name="kode_referal" class="form-control rounded-bottom @error('kode_referal') is-invalid @enderror"" id="kode_referal" placeholder="kode_referal" value="{{ old('kode_referal') }}">
+                <label for="kode_referal">Kode Referal</label>
+                @error('kode_referal')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div> --}}
 
             <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Register</button>
         </form>
