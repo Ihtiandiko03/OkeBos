@@ -15,6 +15,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(5)->create();
+
+        User::create([
+            'nama' => 'Ihtiandiko Wicaksono',
+            'email' => 'wihtiandiko@gmail.com',
+            'password' => bcrypt('12345'),
+            'perusahaan' => 'OKEBOS',
+            'username' => 'Ihtiandiko03',
+            'alamat' => 'Jalan nusantara',
+            'kelurahan' => 'Indralaya Raya',
+            'kecamatan' => 'Indralaya',
+            'kabupatenkota' => 'Ogan Ilir',
+            'provinsi' => 'Sumatera Selatan'
+        ]);
+
+        User::factory(5)->create();
     }
 }

@@ -72,9 +72,9 @@
                 @enderror
             </div>
             <div class="form-floating">
-                <input type="text" name="kabupaten/kota" class="form-control rounded-bottom @error('kabupaten/kota') is-invalid @enderror"" id="kabupaten/kota" placeholder="kabupaten/kota" required value="{{ old('kabupaten/kota') }}">
-                <label for="kabupaten/kota">Kabupaten/Kota</label>
-                @error('kabupaten/kota')
+                <input type="text" name="kabupatenkota" class="form-control rounded-bottom @error('kabupatenkota') is-invalid @enderror"" id="kabupatenkota" placeholder="kabupatenkota" required value="{{ old('kabupatenkota') }}">
+                <label for="kabupatenkota">Kabupaten/Kota</label>
+                @error('kabupatenkota')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>

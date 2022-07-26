@@ -29,7 +29,7 @@ return new class extends Migration
             $table->text('alamat');
             $table->string('kelurahan');
             $table->string('kecamatan');
-            $table->string('kabupaten/kota');
+            $table->string('kabupatenkota');
             $table->string('provinsi');
             $table->float('saldo')->default(0);
             $table->rememberToken();

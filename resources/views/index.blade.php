@@ -15,6 +15,7 @@
                     Welcome Back, {{ auth()->user()->username }}
                 </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a href="/dashboard">Dashboard</a></li>
                 <li>
                     <form action="/logout" method="post">
                         @csrf
@@ -34,7 +35,6 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">Dashboard</div>
 
                         <div class="card-body">
                             @if (session('status'))
@@ -51,7 +51,7 @@
                                 <li class="list-group-item">Referral link: {{ auth()->user()->referral_link }}</li>
                                 <li class="list-group-item">Referrer: {{ auth()->user()->referrer->name ?? 'Not Specified' }}</li>
                                 <li class="list-group-item">Refferal count: {{ count(auth()->user()->referrals)  ?? '0' }}</li>
-                                <a href="">{{ auth()->user()->referrals }}</a>
+                                {{-- <a href="">{{ auth()->user()->referrals }}</a> --}}
                             </ul>
                         </div>
                     </div>

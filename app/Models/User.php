@@ -26,7 +26,7 @@ class User extends Authenticatable
         'alamat',
         'kelurahan',
         'kecamatan',
-        'kabupaten/kota',
+        'kabupatenkota',
         'provinsi',
         'saldo',
         'referrer_id',
