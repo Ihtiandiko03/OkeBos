@@ -5,8 +5,8 @@
     </div>
 
 <div class="col-lg-8">
-    <form method="post" action="/dashboard/profil/" class="mb-5">
-        {{-- @method('put') --}}
+    <form method="post" action="/dashboard/profil/{{ $user[0]->id }}" class="mb-5">
+        @method('put')
         @csrf
       <div class="mb-3">
         <label for="perusahaan" class="form-label">Perusahaan</label>
@@ -26,15 +26,7 @@
             </div>
         @enderror
       </div>
-      <div class="mb-3">
-        <label for="nama" class="form-label">Email</label>
-        <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email', $user[0]->email) }}">
-        @error('email')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-        @enderror
-      </div>
+      
       <div class="mb-3">
         <label for="nama" class="form-label">Alamat</label>
         <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" value="{{ old('alamat', $user[0]->alamat) }}">
@@ -81,7 +73,7 @@
         @enderror
       </div>
 
-      <button type="submit" class="btn btn-primary">Update Post</button>
+      <button type="submit" class="btn btn-primary">Update Data Diri</button>
     </form>
 </div>
 

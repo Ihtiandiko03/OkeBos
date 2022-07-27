@@ -10,4 +10,9 @@ class Rute extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function pengiriman()
+    {
+        return $this->belongsTo(Pengiriman::class);
+    }
 }

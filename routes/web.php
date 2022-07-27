@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ControllerFormPengiriman;
 use App\Http\Controllers\DashboardUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -32,3 +33,4 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 Route::resource('/dashboard/profil', DashboardUserController::class)->middleware('auth');
+Route::resource('/dashboard/pengiriman', ControllerFormPengiriman::class)->middleware('auth');

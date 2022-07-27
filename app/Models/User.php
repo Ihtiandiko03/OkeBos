@@ -93,4 +93,9 @@ class User extends Authenticatable
     {
         return $this->referrer()->with('recursiveReferrer');
     }
+
+    public function pengiriman()
+    {
+        return $this->hasMany(Pengiriman::class);
+    }
 }

@@ -13,6 +13,12 @@
               Ubah Profil
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link " href="/dashboard/pengiriman">
+              <span data-feather="file-text" class="align-text-bottom"></span>
+              Pengiriman
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
