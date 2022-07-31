@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ControllerFormPengiriman;
 use App\Http\Controllers\DashboardUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RuteController;
 use App\Models\User;
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +36,8 @@ Route::get('/dashboard', function () {
 
 Route::resource('/dashboard/profil', DashboardUserController::class)->middleware('auth');
 Route::resource('/dashboard/pengiriman', ControllerFormPengiriman::class)->middleware('auth');
+
+Route::get('/dashboard/admin/driver', [AdminController::class, 'driver'])->middleware('admin');
+Route::get('/dashboard/admin/pengiriman', [AdminController::class, 'pengiriman'])->middleware('admin');
+Route::resource('/dashboard/admin', AdminController::class)->middleware('admin');
+Route::resource('/dashboard/rute', RuteController::class)->middleware('admin');

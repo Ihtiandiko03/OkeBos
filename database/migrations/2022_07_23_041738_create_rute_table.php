@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rute', function (Blueprint $table) {
+        Schema::create('rutes', function (Blueprint $table) {
             $table->id();
-            $table->string('kabupaten');
+            $table->string('kecamatan')->nullable();
+            $table->string('kabupatenkota')->nullable();
             $table->timestamps();
         });
     }

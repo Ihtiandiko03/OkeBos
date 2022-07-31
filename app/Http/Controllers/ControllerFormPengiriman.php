@@ -16,7 +16,7 @@ class ControllerFormPengiriman extends Controller
     public function index()
     {
         return view('dashboard.pengiriman.index', [
-            'pengiriman' => Pengiriman::where('user_id', auth()->user()->id)->get()
+            'pengiriman' => Pengiriman::where('user_id', '=', auth()->user()->id)->latest()->get()
         ]);
     }
 
@@ -38,7 +38,39 @@ class ControllerFormPengiriman extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'perusahaan_pengirim' => 'required',
+            'nama_pengirim' => 'required|min:3|max:255',
+            'provinsi_pengirim' => 'required|min:3|max:255',
+            'kabupatenkota_pengirim' => 'required|min:3|max:255',
+            'kecamatan_pengirim' => 'required|min:3|max:255',
+            'kelurahan_pengirim' => 'required|min:3|max:255',
+            'alamat_pengirim' => 'required',
+            'nomorhp_pengirim' => 'required',
+            'nomorwa_pengirim' => 'required',
+
+            'perusahaan_penerima' => 'required',
+            'nama_penerima' => 'required|min:3|max:255',
+            'provinsi_penerima' => 'required|min:3|max:255',
+            'kabupatenkota_penerima' => 'required|min:3|max:255',
+            'kecamatan_penerima' => 'required|min:3|max:255',
+            'kelurahan_penerima' => 'required|min:3|max:255',
+            'alamat_penerima' => 'required',
+            'nomorhp_penerima' => 'required',
+            'nomorwa_penerima' => 'required',
+
+            'jenis_pengiriman' => 'required',
+            'berat_barang' => 'required',
+            'harga' => 'required',
+            'nomor_resi' => 'required',
+            'user_id'
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Pengiriman::create($validatedData);
+
+        return redirect('dashboard/pengiriman');
     }
 
     /**

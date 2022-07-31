@@ -30,6 +30,9 @@ class User extends Authenticatable
         'provinsi',
         'saldo',
         'referrer_id',
+        'kurir_antar',
+        'kurir_jemput',
+        'no_telephone'
     ];
 
     /**

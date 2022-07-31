@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Pengiriman;
 use App\Models\User;
+use App\Models\Pegawai;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -28,7 +29,9 @@ class DatabaseSeeder extends Seeder
             'kelurahan' => 'Indralaya Raya',
             'kecamatan' => 'Indralaya',
             'kabupatenkota' => 'Ogan Ilir',
-            'provinsi' => 'Sumatera Selatan'
+            'provinsi' => 'Sumatera Selatan',
+            'admin' => 1,
+            'no_telephone' => '082377102513'
         ]);
 
         User::factory(5)->create();

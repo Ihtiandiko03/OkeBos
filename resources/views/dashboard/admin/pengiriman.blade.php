@@ -1,7 +1,8 @@
 @extends('dashboard.layouts.main')
+
 @section('container')
+    <h3>Seluruh Pengiriman</h3>
     <div class="table-responsive col-lg-8">
-  <a href="/dashboard/pengiriman/create" class="btn btn-primary my-3">Buat Pengiriman</a>
         <table class="table table-striped table-sm">
           <thead>
             <tr>

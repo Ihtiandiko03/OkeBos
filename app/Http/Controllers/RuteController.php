@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Rute;
 use Illuminate\Http\Request;
 
-class DashboardUserController extends Controller
+class RuteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class DashboardUserController extends Controller
      */
     public function index()
     {
-        return view('dashboard.profil.edit', [
-            'user' => User::where('id', auth()->user()->id)->get()
+        return view('dashboard.rute.index', [
+            'rute' => Rute::all()
         ]);
     }
 
@@ -26,7 +26,7 @@ class DashboardUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.rute.create');
     }
 
     /**
@@ -37,16 +37,22 @@ class DashboardUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        Rute::create([
+            'kecamatan' => $request['kecamatan'],
+            'kabupatenkota' => $request['kabupatenkota']
+        ]);
+
+        return redirect('/dashboard/rute');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Rute  $rute
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Rute $rute)
     {
         //
     }
@@ -54,13 +60,13 @@ class DashboardUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Rute  $rute
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        return view('dashboard.profil.editprofil', [
-            'user' => User::where('id', '=', $id)->get()
+        return view('dashboard.rute.edit', [
+            'rute' => Rute::where('id', $id)->get()
         ]);
     }
 
@@ -68,42 +74,33 @@ class DashboardUserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Rute  $rute
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $rules = [
-            'perusahaan' => 'required|max:200',
-            'nama' => 'required|max:200',
-            'alamat' => 'required|min:3|max:255',
-            'kelurahan' => 'required|min:3|max:255',
-            'kecamatan' => 'required|min:3|max:255',
-            'kabupatenkota' => 'required|min:3|max:255',
-            'provinsi' => 'required|min:3|max:255',
-            'email'
+            'kecamatan' => 'min:3|max:255',
+            'kabupatenkota' => 'min:3|max:255'
         ];
 
+        $validated = $request->validate($rules);
 
-        $validatedData = $request->validate($rules);
+        Rute::where('id', '=', $id)->update($validated);
 
-        if ($request['email'] != User::where('id', '=', $id)->get('email')) {
-            $validatedData['email'] = $request['email'];
-        }
-
-        User::where('id', '=', $id)->update($validatedData);
-
-        return redirect('/dashboard/profil');
+        return redirect('/dashboard/rute');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Rute  $rute
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $deleted = Rute::where('id', '=', $id)->delete();
+
+        return redirect('/dashboard/rute/');
     }
 }

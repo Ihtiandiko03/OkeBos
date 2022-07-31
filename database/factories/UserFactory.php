@@ -31,7 +31,8 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => Hash::make('12345'), // password
             'remember_token' => Str::random(10),
-            'referrer_id' => 1
+            'referrer_id' => 1,
+            'no_telephone' => fake()->phoneNumber(),
         ];
     }
 

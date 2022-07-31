@@ -44,11 +44,11 @@
                             @endif
 
                             You are logged in!
-
+                                
                             <ul class="list-group mt-3">
                                 <li class="list-group-item">Username: {{ auth()->user()->username }}</li>
                                 <li class="list-group-item">Email: {{ auth()->user()->email }}</li>
-                                <li class="list-group-item">Referral link: {{ auth()->user()->referral_link }}</li>
+                                <li class="list-group-item">Referral link: <a href="{{ auth()->user()->referral_link }}">{{ auth()->user()->referral_link }}</a></li>
                                 <li class="list-group-item">Referrer: {{ auth()->user()->referrer->name ?? 'Not Specified' }}</li>
                                 <li class="list-group-item">Refferal count: {{ count(auth()->user()->referrals)  ?? '0' }}</li>
                                 {{-- <a href="">{{ auth()->user()->referrals }}</a> --}}

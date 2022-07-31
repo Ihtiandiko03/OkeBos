@@ -149,6 +149,15 @@
       <h4>Penerima</h4>
 
       <div class="mb-3">
+        <label for="perusahaan_penerima" class="form-label">Perusahaan</label>
+        <input type="text" class="form-control @error('perusahaan_penerima') is-invalid @enderror" id="perusahaan_penerima" name="perusahaan_penerima" value="{{ old('perusahaan_penerima') }}">
+        @error('perusahaan_penerima')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+      </div>
+      <div class="mb-3">
         <label for="nama_penerima" class="form-label">Nama</label>
         <input type="text" class="form-control @error('nama_penerima') is-invalid @enderror" id="nama_penerima" name="nama_penerima" value="{{ old('nama_penerima') }}">
         @error('nama_penerima')

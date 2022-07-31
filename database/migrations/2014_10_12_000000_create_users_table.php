@@ -14,18 +14,28 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
+            //USER
             $table->id();
-            $table->string('perusahaan');
+            $table->string('perusahaan')->nullable();
             $table->string('nama');
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
 
+            //REFFERAL
             $table->unsignedBigInteger('referrer_id')->nullable();
             $table->foreign('referrer_id')->references('id')->on('users');
 
+            //ADMIN
+            $table->boolean('admin')->default(false);
 
+            //KURIR
+            $table->string('no_telephone');
+            $table->boolean('kurir_antar')->default(false);
+            $table->boolean('kurir_jemput')->default(false);
+
+            //ALLROLE
             $table->text('alamat');
             $table->string('kelurahan');
             $table->string('kecamatan');

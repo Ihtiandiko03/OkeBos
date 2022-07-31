@@ -19,17 +19,25 @@
       </div>
       <div class="mb-3">
         <label for="nama" class="form-label">Nama</label>
-        <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama', $user[0]->nama) }}">
+        <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" autofocus value="{{ old('nama', $user[0]->nama) }}">
         @error('nama')
             <div class="invalid-feedback">
                 {{ $message }}
             </div>
         @enderror
       </div>
-      
       <div class="mb-3">
-        <label for="nama" class="form-label">Alamat</label>
-        <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" value="{{ old('alamat', $user[0]->alamat) }}">
+        <label for="email" class="form-label">email</label>
+        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" autofocus value="{{ old('email', $user[0]->email) }}">
+        @error('email')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+      </div>
+      <div class="mb-3">
+        <label for="alamat" class="form-label">Alamat</label>
+        <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" autofocus value="{{ old('alamat', $user[0]->alamat) }}">
         @error('alamat')
             <div class="invalid-feedback">
                 {{ $message }}
@@ -37,8 +45,8 @@
         @enderror
       </div>
       <div class="mb-3">
-        <label for="nama" class="form-label">Kelurahan</label>
-        <input type="text" class="form-control @error('kelurahan') is-invalid @enderror" id="kelurahan" name="kelurahan" value="{{ old('kelurahan', $user[0]->kelurahan) }}">
+        <label for="kelurahan" class="form-label">Desa/Kelurahan</label>
+        <input type="text" class="form-control @error('kelurahan') is-invalid @enderror" id="kelurahan" name="kelurahan" autofocus value="{{ old('kelurahan', $user[0]->kelurahan) }}">
         @error('kelurahan')
             <div class="invalid-feedback">
                 {{ $message }}
@@ -46,8 +54,8 @@
         @enderror
       </div>
       <div class="mb-3">
-        <label for="nama" class="form-label">Kecamatan</label>
-        <input type="text" class="form-control @error('kecamatan') is-invalid @enderror" id="kecamatan" name="kecamatan" value="{{ old('kecamatan', $user[0]->kecamatan) }}">
+        <label for="kecamatan" class="form-label">Kecamatan</label>
+        <input type="text" class="form-control @error('kecamatan') is-invalid @enderror" id="kecamatan" name="kecamatan" autofocus value="{{ old('kecamatan', $user[0]->kecamatan) }}">
         @error('kecamatan')
             <div class="invalid-feedback">
                 {{ $message }}
@@ -55,8 +63,8 @@
         @enderror
       </div>
       <div class="mb-3">
-        <label for="nama" class="form-label">Kabupaten/Kota</label>
-        <input type="text" class="form-control @error('kabupatenkota') is-invalid @enderror" id="kabupatenkota" name="kabupatenkota" value="{{ old('kabupatenkota', $user[0]->kabupatenkota) }}">
+        <label for="kabupatenkota" class="form-label">Kabupaten/Kota</label>
+        <input type="text" class="form-control @error('kabupatenkota') is-invalid @enderror" id="kabupatenkota" name="kabupatenkota" autofocus value="{{ old('kabupatenkota', $user[0]->kabupatenkota) }}">
         @error('kabupatenkota')
             <div class="invalid-feedback">
                 {{ $message }}
@@ -64,8 +72,8 @@
         @enderror
       </div>
       <div class="mb-3">
-        <label for="nama" class="form-label">Provinsi</label>
-        <input type="text" class="form-control @error('provinsi') is-invalid @enderror" id="provinsi" name="provinsi" value="{{ old('provinsi', $user[0]->provinsi) }}">
+        <label for="provinsi" class="form-label">Provinsi</label>
+        <input type="text" class="form-control @error('provinsi') is-invalid @enderror" id="provinsi" name="provinsi" autofocus value="{{ old('provinsi', $user[0]->provinsi) }}">
         @error('provinsi')
             <div class="invalid-feedback">
                 {{ $message }}
