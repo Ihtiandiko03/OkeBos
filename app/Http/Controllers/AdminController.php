@@ -45,7 +45,9 @@ class AdminController extends Controller
 
     public function create()
     {
-        return view('dashboard.admin.create');
+        return view('dashboard.admin.create', [
+            'rutes' => Rute::all()
+        ]);
     }
 
     /**
@@ -74,7 +76,8 @@ class AdminController extends Controller
             'kurir_antar' => $request['kurir_antar'] ? $request['kurir_antar'] : 0,
             'kurir_jemput' => $request['kurir_jemput'] ? $request['kurir_jemput'] : 0,
             'password'    => Hash::make($request['password']),
-            'no_telephone' => $request['no_telephone']
+            'no_telephone' => $request['no_telephone'],
+            'kantor_cabang' => $request['kantor_cabang']
         ]);
 
         return redirect('/dashboard/admin/driver');
@@ -102,7 +105,8 @@ class AdminController extends Controller
     public function edit($username)
     {
         return view('dashboard.admin.edit', [
-            'kurir' => User::where('username', $username)->get()
+            'kurir' => User::where('username', $username)->get(),
+            'rutes' => Rute::all()
         ]);
     }
 
@@ -124,7 +128,8 @@ class AdminController extends Controller
             'kecamatan' => 'min:3|max:255',
             'kabupatenkota' => 'min:3|max:255',
             'provinsi' => 'min:3|max:255',
-            'email'
+            'email',
+            'kantor_cabang'
 
         ];
 

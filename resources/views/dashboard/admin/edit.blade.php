@@ -12,6 +12,20 @@
     <form method="post" action="/dashboard/admin/{{$kurir->username}}" class="mb-5">
         @method('put')
         @csrf
+      
+    <div class="mb-3">
+        <label for="kantor_cabang" class="form-label">Kantor Cabang</label>
+        <select class="form-select" name="kantor_cabang">
+         @foreach ($rutes as $rute)
+            @if (old('rute', $kurir->kantor_cabang) == $rute->id)
+                <option value="{{ $rute->id }}" selected>{{ $rute->kecamatan }}, {{ $rute->kabupatenkota }}</option>
+            @else
+                <option value="{{ $rute->id }}">{{ $rute->kecamatan }}, {{ $rute->kabupatenkota }}</option>
+            @endif
+        @endforeach
+        </select>
+    </div>
+
       <div class="mb-3">
         <label for="nama" class="form-label">Nama</label>
         <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" autofocus value="{{ old('nama', $kurir->nama) }}">

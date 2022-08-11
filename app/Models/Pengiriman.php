@@ -10,6 +10,7 @@ class Pengiriman extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $with = ['user', 'rute'];
 
     public function user()
     {

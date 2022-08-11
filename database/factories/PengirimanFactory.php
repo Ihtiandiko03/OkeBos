@@ -39,7 +39,9 @@ class PengirimanFactory extends Factory
             'jenis_pengiriman' => 'Dalam Kota',
             'berat_barang' => mt_rand(1, 5),
             'harga' => 12000,
-            'nomor_resi' => fake()->ean13()
+            'nomor_resi' => fake()->ean13(),
+            'rute_awal' => 1,
+            'rute_tujuan' => 2
         ];
     }
 }

@@ -101,4 +101,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Pengiriman::class);
     }
+
+    public function kantor_cabang()
+    {
+        return $this->belongsTo(Rute::class, 'kantor_cabang');
+    }
 }

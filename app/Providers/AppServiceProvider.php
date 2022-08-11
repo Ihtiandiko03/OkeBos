@@ -32,5 +32,19 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('admin', function (User $user) {
             return $user->admin;
         });
+
+        Gate::define('kurir', function (User $user) {
+            if ($user->kurir_antar == 1 && $user->kurir_jemput == 1) {
+                return $user->kurir_antar;
+            } else if ($user->kurir_antar == 1 && $user->kurir_jemput == 0) {
+                return $user->kurir_antar;
+            } else if ($user->kurir_antar == 0 && $user->kurir_jemput == 1) {
+                return $user->kurir_jemput;
+            }
+        });
+
+        // Gate::define('kurir_jemput', function (User $user) {
+        //     return $user->kurir_jemput;
+        // });
     }
 }

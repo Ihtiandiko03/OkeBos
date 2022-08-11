@@ -27,7 +27,9 @@ class ControllerFormPengiriman extends Controller
      */
     public function create()
     {
-        return view('dashboard.pengiriman.create');
+        return view('dashboard.pengiriman.create', [
+            'rutes' => Rute::all()
+        ]);
     }
 
     /**
@@ -60,9 +62,8 @@ class ControllerFormPengiriman extends Controller
             'nomorwa_penerima' => 'required',
 
             'jenis_pengiriman' => 'required',
-            'berat_barang' => 'required',
-            'harga' => 'required',
-            'nomor_resi' => 'required',
+            'rute_awal' => 'required',
+            'rute_tujuan' => 'required',
             'user_id'
         ]);
 

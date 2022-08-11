@@ -8,7 +8,7 @@
         <form action="/dashboard/admin" method="post">
             @csrf
 
-            <h3>Tipe Driver</h3>
+            <label>Tipe Driver</label>
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="kurir_antar" name="kurir_antar" value="1">
                 <label class="form-check-label" for="kurir_antar">Kurir Antar</label>
@@ -16,6 +16,19 @@
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="kurir_jemput" name="kurir_jemput" value="1">
                 <label class="form-check-label" for="kurir_jemput">Kurir Jemput</label>
+            </div>
+
+            <div class="mb-3">
+                <label for="kantor_cabang" class="form-label">Kantor Cabang</label>
+                <select class="form-select" name="kantor_cabang">
+                    @foreach ($rutes as $rute)
+                        @if (old('rute') == $rute->id)
+                            <option value="{{ $rute->id }}" selected>{{ $rute->kecamatan }}, {{ $rute->kabupatenkota }}</option>
+                        @else
+                            <option value="{{ $rute->id }}">{{ $rute->kecamatan }}, {{ $rute->kabupatenkota }}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-floating">

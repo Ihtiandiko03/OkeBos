@@ -14,6 +14,32 @@
           </select>
         </div>
 
+        <div class="mb-3">
+        <label for="rute_awal" class="form-label">Rute Awal</label>
+        <select class="form-select" name="rute_awal">
+            @foreach ($rutes as $rute)
+                @if (old('rute') == $rute->id)
+                    <option value="{{ $rute->id }}" selected>{{ $rute->kecamatan }}, {{ $rute->kabupatenkota }}</option>
+                @else
+                    <option value="{{ $rute->id }}">{{ $rute->kecamatan }}, {{ $rute->kabupatenkota }}</option>
+                @endif
+            @endforeach
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="rute_tujuan" class="form-label">Rute Tujuan</label>
+        <select class="form-select" name="rute_tujuan">
+            @foreach ($rutes as $rute)
+                @if (old('rute') == $rute->id)
+                    <option value="{{ $rute->id }}" selected>{{ $rute->kecamatan }}, {{ $rute->kabupatenkota }}</option>
+                @else
+                    <option value="{{ $rute->id }}">{{ $rute->kecamatan }}, {{ $rute->kabupatenkota }}</option>
+                @endif
+            @endforeach
+        </select>
+      </div>
+
       <div class="mb-3">
         <label for="nomor_resi" class="form-label">Nomor Resi</label>
         <input type="text" class="form-control @error('nomor_resi') is-invalid @enderror" id="nomor_resi" name="nomor_resi" value="{{ old('nomor_resi') }}">

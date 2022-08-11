@@ -15,14 +15,16 @@ return new class extends Migration
     {
         Schema::create('pengirimen', function (Blueprint $table) {
             $table->id();
-            $table->string('nomor_resi')->unique();
-            $table->float('harga');
-            $table->float('berat_barang');
+            $table->string('nomor_resi')->unique()->nullable();
+            $table->float('harga')->nullable();
+            $table->float('berat_barang')->nullable();
             $table->string('lokasi_barang')->nullable();
             $table->string('kondisi_barang')->nullable();
             $table->string('foto_barang')->nullable();
             $table->string('jenis_pengiriman');
             $table->foreignId('user_id');
+            $table->foreignId('rute_awal');
+            $table->foreignId('rute_tujuan');
             //Pengirim
             $table->string('perusahaan_pengirim');
             $table->string("nama_pengirim");

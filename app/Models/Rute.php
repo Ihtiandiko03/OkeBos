@@ -13,6 +13,12 @@ class Rute extends Model
 
     public function pengiriman()
     {
-        return $this->belongsTo(Pengiriman::class);
+        return $this->hasMany(Pengiriman::class);
+    }
+
+    public function kurirdanagen()
+    {
+
+        return $this->hasMany(User::class);
     }
 }

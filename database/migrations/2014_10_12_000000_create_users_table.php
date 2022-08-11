@@ -31,11 +31,19 @@ return new class extends Migration
             $table->boolean('admin')->default(false);
 
             //KURIR
-            $table->string('no_telephone');
+
             $table->boolean('kurir_antar')->default(false);
             $table->boolean('kurir_jemput')->default(false);
 
+            //Kurir dan Agen
+            $table->foreignId('kantor_cabang')->default(9999);
+
+            //Agen
+            $table->boolean('agen')->default(false);
+
+
             //ALLROLE
+            $table->string('no_telephone');
             $table->text('alamat');
             $table->string('kelurahan');
             $table->string('kecamatan');

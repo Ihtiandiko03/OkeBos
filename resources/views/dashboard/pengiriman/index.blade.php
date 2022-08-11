@@ -7,7 +7,8 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Nomor Resi</th>
-              <th scope="col">Action</th>
+              <th scope="col">Dibuat</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -15,6 +16,8 @@
         <tr>
           <td>{{ $loop->iteration }}</td>
           <td>{{ $pengirimanku->nomor_resi }}</td>
+          <td>{{ $pengirimanku->created_at }}</td>
+          
           <td>
                 <a href="/dashboard/pengiriman/{{ $pengirimanku->nomor_resi }}" class="btn btn-info">View</a>
           </td>

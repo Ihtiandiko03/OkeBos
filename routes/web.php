@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ControllerFormPengiriman;
 use App\Http\Controllers\DashboardUserController;
+use App\Http\Controllers\KurirController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -41,3 +42,5 @@ Route::get('/dashboard/admin/driver', [AdminController::class, 'driver'])->middl
 Route::get('/dashboard/admin/pengiriman', [AdminController::class, 'pengiriman'])->middleware('admin');
 Route::resource('/dashboard/admin', AdminController::class)->middleware('admin');
 Route::resource('/dashboard/rute', RuteController::class)->middleware('admin');
+
+Route::resource('/dashboard/kurir', KurirController::class)->middleware('kurir');
