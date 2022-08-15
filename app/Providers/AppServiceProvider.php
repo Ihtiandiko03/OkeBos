@@ -43,6 +43,10 @@ class AppServiceProvider extends ServiceProvider
             }
         });
 
+        Gate::define('agen', function (User $user) {
+            return $user->agen;
+        });
+
         // Gate::define('kurir_jemput', function (User $user) {
         //     return $user->kurir_jemput;
         // });

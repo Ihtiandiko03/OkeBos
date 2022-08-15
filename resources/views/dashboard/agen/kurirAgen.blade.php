@@ -1,25 +1,26 @@
 @extends('dashboard.layouts.main')
 @section('container')
     <div class="table-responsive col-lg-8">
-  <a href="/dashboard/pengiriman/create" class="btn btn-primary my-3">Buat Pengiriman</a>
         <table class="table table-striped table-sm">
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Nomor Resi</th>
-              <th scope="col">Dibuat</th>
+              <th scope="col">Nama</th>
+              <th scope="col">Kurir Antar</th>
+              <th scope="col">Kurir Jemput</th>
               
             </tr>
           </thead>
           <tbody>
-        @foreach ($pengiriman as $pengirimanku)
+        @foreach ($kurir as $kurirku)
         <tr>
           <td>{{ $loop->iteration }}</td>
-          <td>{{ $pengirimanku->nomor_resi }}</td>
-          <td>{{ $pengirimanku->created_at }}</td>
+          <td>{{ $kurirku->nama }}</td>
+          <td>{{ $kurirku->kurir_antar ? 'Ya' : 'Tidak' }}</td>
+          <td>{{ $kurirku->kurir_jemput ? 'Ya' : 'Tidak' }}</td>
           
           <td>
-                <a href="/dashboard/pengiriman/{{ $pengirimanku->id }}" class="btn btn-info">View</a>
+                <a href="/dashboard/agen/kuriragen/{{ $kurirku->id }}" class="btn btn-info">View</a>
           </td>
         </tr>
         @endforeach

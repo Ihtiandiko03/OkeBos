@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Pengiriman;
 use Illuminate\Http\Request;
+use Auth;
+
 
 class AgenController extends Controller
 {
@@ -12,9 +15,28 @@ class AgenController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function kurirAgen()
+    {
+        $auth = Auth::user()->kantor_cabang;
+
+        return view('dashboard.agen.kurirAgen', [
+            'kurir' => User::where('kantor_cabang', '=', $auth)
+                ->where(function ($query) {
+                    $query->where('kurir_antar', '=', 1)
+                        ->orWhere('kurir_jemput', '=', 1);
+                })->get()
+        ]);
+    }
+
+
     public function index()
     {
-        //
+        $auth = Auth::user()->kantor_cabang;
+        return view('dashboard.agen.index', [
+            'pengiriman' => Pengiriman::where('rute_awal', '=', $auth)->get()
+        ]);
     }
 
     /**

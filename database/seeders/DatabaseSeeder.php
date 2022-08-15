@@ -85,6 +85,22 @@ class DatabaseSeeder extends Seeder
             'no_telephone' => '082377102513'
         ]);
 
+        User::create([
+            'nama' => 'Agen Banjjarejo',
+            'email' => 'agenbanjarrejo@gmail.com',
+            'password' => bcrypt('12345'),
+            'perusahaan' => 'OKEBOS',
+            'username' => 'agenBanjarrejo',
+            'alamat' => 'Jalan nusantara',
+            'kelurahan' => 'Indralaya Raya',
+            'kecamatan' => 'Banjarrejo',
+            'kabupatenkota' => 'Metro',
+            'provinsi' => 'Lampung',
+            'agen' => 1,
+
+            'no_telephone' => '082377102513'
+        ]);
+
         Rute::create([
             'kecamatan' => 'Yosorejo',
             'kabupatenkota' => 'Metro'

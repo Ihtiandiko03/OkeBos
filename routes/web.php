@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AgenController;
 use App\Http\Controllers\ControllerFormPengiriman;
 use App\Http\Controllers\DashboardUserController;
 use App\Http\Controllers\KurirController;
@@ -38,9 +39,16 @@ Route::get('/dashboard', function () {
 Route::resource('/dashboard/profil', DashboardUserController::class)->middleware('auth');
 Route::resource('/dashboard/pengiriman', ControllerFormPengiriman::class)->middleware('auth');
 
+Route::get('/dashboard/admin/agen', [AdminController::class, 'agen'])->middleware('admin');
+Route::get('/dashboard/admin/createAgen', [AdminController::class, 'createAgen'])->middleware('admin');
+Route::post('/dashboard/admin/createAgen', [AdminController::class, 'storeAgen'])->middleware('admin');
+
+
 Route::get('/dashboard/admin/driver', [AdminController::class, 'driver'])->middleware('admin');
 Route::get('/dashboard/admin/pengiriman', [AdminController::class, 'pengiriman'])->middleware('admin');
 Route::resource('/dashboard/admin', AdminController::class)->middleware('admin');
 Route::resource('/dashboard/rute', RuteController::class)->middleware('admin');
-
 Route::resource('/dashboard/kurir', KurirController::class)->middleware('kurir');
+
+Route::get('/dashboard/agen/kuriragen', [AgenController::class, 'kurirAgen']);
+Route::resource('/dashboard/agen', AgenController::class)->middleware('agen');

@@ -83,7 +83,7 @@ class ControllerFormPengiriman extends Controller
     public function show($id)
     {
         return view('dashboard.pengiriman.show', [
-            'pengiriman' => Pengiriman::where('nomor_resi', $id)->get()
+            'pengiriman' => Pengiriman::where('id', $id)->get()
         ]);
     }
 

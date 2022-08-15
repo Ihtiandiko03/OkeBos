@@ -35,6 +35,45 @@ class AdminController extends Controller
         ]);
     }
 
+    public function agen()
+    {
+        return view('dashboard.admin.showAgen', [
+            'agen' => User::where('agen', '=', 1)->latest()->get()
+        ]);
+    }
+
+    public function createAgen()
+    {
+        return view('dashboard.admin.createAgen', [
+            'rutes' => Rute::all()
+        ]);
+    }
+
+    public function storeAgen(Request $request)
+    {
+        $referrer = User::with('recursiveReferrer')->first();
+
+
+        User::create([
+            'nama'        => $request['nama'],
+            'username'    => $request['username'],
+            'perusahaan'       => $request['perusahaan'],
+            'alamat'       => $request['alamat'],
+            'email'       => $request['email'],
+            'kelurahan'       => $request['kelurahan'],
+            'kecamatan'       => $request['kecamatan'],
+            'kabupatenkota'     => $request['kabupatenkota'],
+            'provinsi'       => $request['provinsi'],
+            'referrer_id' => $referrer ? $referrer->id : null,
+            'password'    => Hash::make($request['password']),
+            'no_telephone' => $request['no_telephone'],
+            'kantor_cabang' => $request['kantor_cabang'],
+            'agen' => $request['agen'] ? $request['agen'] : 0
+        ]);
+
+        return redirect('/dashboard/admin/agen');
+    }
+
     public function pengiriman()
     {
         return view('dashboard.admin.pengiriman', [

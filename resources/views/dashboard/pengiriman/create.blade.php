@@ -40,6 +40,7 @@
         </select>
       </div>
 
+      @can('kurir')
       <div class="mb-3">
         <label for="nomor_resi" class="form-label">Nomor Resi</label>
         <input type="text" class="form-control @error('nomor_resi') is-invalid @enderror" id="nomor_resi" name="nomor_resi" value="{{ old('nomor_resi') }}">
@@ -69,16 +70,11 @@
             </div>
         @enderror
       </div>
+      @endcan
 
-      <div class="mb-3">
-        <label for="user_id" class="form-label">user ID</label>
-        <input type="text" class="form-control @error('user_id') is-invalid @enderror" id="user_id" name="user_id" value="{{ old('user_id') }}">
-        @error('user_id')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-        @enderror
-      </div>
+
+        <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id; }}">
+
 
       {{-- Pengirim --}}
       <h4 class="my-3">Pengirim</h4>

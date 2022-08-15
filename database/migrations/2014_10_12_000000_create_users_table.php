@@ -36,7 +36,7 @@ return new class extends Migration
             $table->boolean('kurir_jemput')->default(false);
 
             //Kurir dan Agen
-            $table->foreignId('kantor_cabang')->default(9999);
+            $table->foreignId('kantor_cabang')->nullable();
 
             //Agen
             $table->boolean('agen')->default(false);

@@ -32,7 +32,9 @@ class User extends Authenticatable
         'referrer_id',
         'kurir_antar',
         'kurir_jemput',
-        'no_telephone'
+        'no_telephone',
+        'kantor_cabang',
+        'agen'
     ];
 
     /**
