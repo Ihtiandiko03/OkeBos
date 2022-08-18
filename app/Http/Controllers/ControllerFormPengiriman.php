@@ -64,7 +64,8 @@ class ControllerFormPengiriman extends Controller
             'jenis_pengiriman' => 'required',
             'rute_awal' => 'required',
             'rute_tujuan' => 'required',
-            'user_id'
+            'user_id',
+            'nomor_resi' => 'required'
         ]);
 
         $validatedData['user_id'] = auth()->user()->id;

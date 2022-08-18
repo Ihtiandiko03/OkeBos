@@ -40,16 +40,10 @@
         </select>
       </div>
 
+              <input type="hidden" id="nomor_resi" name="nomor_resi" value="{{mt_rand(10000000000000, 99999999999999)}}">
+
       @can('kurir')
-      <div class="mb-3">
-        <label for="nomor_resi" class="form-label">Nomor Resi</label>
-        <input type="text" class="form-control @error('nomor_resi') is-invalid @enderror" id="nomor_resi" name="nomor_resi" value="{{ old('nomor_resi') }}">
-        @error('nomor_resi')
-            <div class="invalid-feedback">
-                {{ $message }}
-            </div>
-        @enderror
-      </div>
+      
 
       <div class="mb-3">
         <label for="harga" class="form-label">Harga</label>
