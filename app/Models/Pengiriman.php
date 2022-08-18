@@ -11,6 +11,32 @@ class Pengiriman extends Model
 
     protected $guarded = ['id'];
     protected $with = ['user', 'rute'];
+    protected $fillable = [
+        'perusahaan_pengirim',
+        'nama_pengirim',
+        'provinsi_pengirim',
+        'kabupatenkota_pengirim',
+        'kecamatan_pengirim',
+        'kelurahan_pengirim',
+        'alamat_pengirim',
+        'nomorhp_pengirim',
+        'nomorwa_pengirim',
+        'perusahaan_penerima',
+        'nama_penerima',
+        'provinsi_penerima',
+        'kabupatenkota_penerima',
+        'kecamatan_penerima',
+        'kelurahan_penerima',
+        'alamat_penerima',
+        'nomorhp_penerima',
+        'nomorwa_penerima',
+        'jenis_pengiriman',
+        'rute_awal',
+        'rute_tujuan',
+        'user_id',
+        'nomor_resi',
+        'foto_barang'
+    ];
 
     public function user()
     {

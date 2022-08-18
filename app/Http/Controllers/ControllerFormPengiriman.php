@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Rute;
 use App\Models\Pengiriman;
+use Illuminate\Validation\Validator;
 
 class ControllerFormPengiriman extends Controller
 {
@@ -65,10 +66,12 @@ class ControllerFormPengiriman extends Controller
             'rute_awal' => 'required',
             'rute_tujuan' => 'required',
             'user_id',
-            'nomor_resi' => 'required'
+            'nomor_resi' => 'required',
+            'foto_barang' => 'required|mimes:jpeg,png,jpg|max:1024',
         ]);
 
         $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['foto_barang'] = $request->file('foto_barang')->store('bukti_barang');
 
         Pengiriman::create($validatedData);
 

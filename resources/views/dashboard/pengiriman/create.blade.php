@@ -40,6 +40,7 @@
         </select>
       </div>
 
+
               <input type="hidden" id="nomor_resi" name="nomor_resi" value="{{mt_rand(10000000000000, 99999999999999)}}">
 
       @can('kurir')
@@ -63,6 +64,10 @@
                 {{ $message }}
             </div>
         @enderror
+      </div>
+      <div class="mb-3">
+        <label for="foto_barang" class="form-label">Foto Barang</label><br>
+        <input class="form-control" type="file" id="foto_barang" name="foto_barang" accept="image/png, image/jpeg, image/jpg">
       </div>
       @endcan
 
@@ -254,7 +259,9 @@
       </div>
 
 
-      <button type="submit" class="btn btn-primary">Buat Kiriman</button>
+      <button type="submit" class="btn btn-primary">Buat Kiriman
+        <a href="/dashboard/pengiriman/"></a>
+      </button>
     </form>
     </div>
 

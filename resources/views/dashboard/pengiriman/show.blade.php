@@ -112,11 +112,13 @@
             <th scope="col">Nomor WA</th>
             <td>{{ $pengirimanku->nomorwa_penerima }}</td>
         </tr>
+        <tr>
+            <th scope="col">Foto Barang</th>
+            <td><img src="{{('public\storage\'.$pengirimanku->foto_barang) }}" style="width: 400px; height:300px"></td>
+        </tr>
         
           </tbody>
         </table>
         @endforeach
       </div>
-
-      <a href="/dashboard/pengiriman">Kembali</a>
 @endsection
