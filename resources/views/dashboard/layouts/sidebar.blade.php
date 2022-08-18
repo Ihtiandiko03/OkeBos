@@ -77,11 +77,11 @@
           <li class="nav-item">
             <a class="nav-link " href="/dashboard/agen">
               <span data-feather="grid" class="align-text-bottom"></span>
-              Barang Baru Masuk
+              Verifikasi Pengiriman Barang
             </a>
           </li>
 
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link " href="#">
               <span data-feather="grid" class="align-text-bottom"></span>
               Barang Pengiriman Masuk
@@ -89,11 +89,11 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="#">
+            <a class="nav-link " href="/dashboard/pengiriman/barangkeluar/index">
               <span data-feather="grid" class="align-text-bottom"></span>
               Barang Pengiriman Keluar
             </a>
-          </li>
+          </li> --}}
 
           <li class="nav-item">
             <a class="nav-link " href="/dashboard/agen/kuriragen">

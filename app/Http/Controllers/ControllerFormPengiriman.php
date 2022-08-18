@@ -95,7 +95,27 @@ class ControllerFormPengiriman extends Controller
      */
     public function edit($id)
     {
-        //
+        $cekkurir = Pengiriman::where('id', $id)->get('verifikasi_kurir_ke_agen');
+        $cekagen = Pengiriman::where('id', $id)->get('verifikasi_agen_ke_agen');
+        $cekkurir2 = Pengiriman::where('id', $id)->get('verifikasi_agen_ke_kurir');
+
+
+        if (($cekkurir[0]["verifikasi_kurir_ke_agen"] == false)) {
+            return view('dashboard.pengiriman.verifKurirKeAgen', [
+                'pengiriman' => Pengiriman::where('id', $id)->get(),
+                'rutes' => Rute::all()
+            ]);
+        } else if (($cekkurir[0]["verifikasi_kurir_ke_agen"] == true) && ($cekagen[0]["verifikasi_agen_ke_agen"] == false)) {
+            return view('dashboard.pengiriman.verifAgenKeAgen', [
+                'pengiriman' => Pengiriman::where('id', $id)->get(),
+                'rutes' => Rute::all()
+            ]);
+        } else if (($cekkurir[0]["verifikasi_kurir_ke_agen"] == true) && ($cekagen[0]["verifikasi_agen_ke_agen"] == true)) {
+            return view('dashboard.pengiriman.verifAgenKeKurir', [
+                'pengiriman' => Pengiriman::where('id', $id)->get(),
+                'rutes' => Rute::all()
+            ]);
+        }
     }
 
     /**
@@ -107,8 +127,36 @@ class ControllerFormPengiriman extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cekkurir = Pengiriman::where('id', $id)->get('verifikasi_kurir_ke_agen');
+        $cekagen = Pengiriman::where('id', $id)->get('verifikasi_agen_ke_agen');
+        $cekkurir2 = Pengiriman::where('id', $id)->get('verifikasi_agen_ke_kurir');
+
+        if (($cekkurir[0]["verifikasi_kurir_ke_agen"] == false)) {
+            Pengiriman::where('id', '=', $id)->update([
+                'verifikasi_kurir_ke_agen' => $request['verifikasi_kurir_ke_agen']
+            ]);
+        } else if (($cekkurir[0]["verifikasi_kurir_ke_agen"] == true) && ($cekagen[0]["verifikasi_agen_ke_agen"] == false)) {
+            Pengiriman::where('id', '=', $id)->update([
+                'verifikasi_agen_ke_agen' => $request['verifikasi_agen_ke_agen']
+            ]);
+        } else if (($cekkurir[0]["verifikasi_kurir_ke_agen"] == true) && ($cekagen[0]["verifikasi_agen_ke_agen"] == true)) {
+            Pengiriman::where('id', '=', $id)->update([
+                'verifikasi_agen_ke_kurir' => $request['verifikasi_agen_ke_kurir']
+            ]);
+        }
+
+
+
+        return redirect('/dashboard/agen');
     }
+
+    // public function verifAgenKeAgen($id)
+    // {
+    //     return view('dashboard.pengiriman.editpengiriman', [
+    //         'pengiriman' => Pengiriman::where('id', $id)->get(),
+    //         'rutes' => Rute::all()
+    //     ]);;
+    // }
 
     /**
      * Remove the specified resource from storage.
@@ -119,5 +167,13 @@ class ControllerFormPengiriman extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function barangKeluar()
+    {
+        return view('dashboard.agen.barangkeluar', [
+            'pengiriman' => Pengiriman::where('verifikasi_barang_keluar', 0)->orWhere('verifikasi_barang_keluar', 1)->get(),
+            'rutes' => Rute::all()
+        ]);
     }
 }

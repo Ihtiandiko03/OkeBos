@@ -23,7 +23,7 @@
           <td>{{ $kurir->kurir_jemput ? 'Iya' : 'Tidak' }}</td>
           <td>
                 <a href="/dashboard/admin/{{ $kurir->username }}" class="btn btn-info">View</a>
-                <a href="/dashboard/admin/{{ $kurir->username }}/edit" class="btn btn-warning">Ubah</a>
+                <a href="/dashboard/ubahprofilkurir?username={{ $kurir->username }}" class="btn btn-warning">Ubah</a>
                 <form action="/dashboard/admin/{{ $kurir->username }}" method="post" class="d-inline">
                   @method('delete')
                   @csrf

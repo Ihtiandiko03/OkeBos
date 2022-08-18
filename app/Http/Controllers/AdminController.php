@@ -179,7 +179,7 @@ class AdminController extends Controller
         }
         User::where('username', '=', $username)->update($validated);
 
-        return redirect('/dashboard/admin/driver');
+        return redirect('/dashboard/admin/agen');
     }
 
     /**
@@ -191,6 +191,42 @@ class AdminController extends Controller
     public function destroy(User $user, $username)
     {
         $deleted = User::where('username', '=', $username)->delete();
+
+        return redirect('/dashboard/admin/driver');
+    }
+
+    public function ubahProfilKurir()
+    {
+        if (request('username')) {
+            return view('dashboard.admin.ubahprofilkurir', [
+                'kurir' => User::where('username', '=', request('username'))->get()
+            ]);
+        }
+    }
+
+    public function storeProfilKurir(Request $request, $username)
+    {
+        $rules = [
+            'nama' => 'min:3|max:255',
+            'no_telephone' => 'min:9|max:15',
+            'alamat' => 'min:3',
+            'kelurahan' => 'min:3|max:255',
+            'kecamatan' => 'min:3|max:255',
+            'kabupatenkota' => 'min:3|max:255',
+            'provinsi' => 'min:3|max:255',
+            'email',
+            'kantor_cabang',
+            'kurir_antar' => $request['kurir_antar'] ? $request['kurir_antar'] : 0,
+            'kurir_jemput' => $request['kurir_jemput'] ? $request['kurir_jemput'] : 0,
+
+        ];
+
+        $validated = $request->validate($rules);
+
+        if ($request['email'] != User::where('username', '=', $username)->get('email')) {
+            $validated['email'] = $request['email'];
+        }
+        User::where('username', '=', $username)->update($validated);
 
         return redirect('/dashboard/admin/driver');
     }

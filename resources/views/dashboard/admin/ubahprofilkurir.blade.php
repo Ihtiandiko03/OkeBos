@@ -2,29 +2,26 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Edit Agen</h1>
+        <h1 class="h2">Edit Kurir</h1>
     </div>
 
         @foreach ($kurir as $kurir)
             
         
     <div class="col-lg-8">
-    <form method="post" action="/dashboard/admin/{{$kurir->username}}" class="mb-5">
+    <form method="post" action="/dashboard/ubahprofilkurir?{{$kurir->username}}" class="mb-5">
         @method('put')
         @csrf
-{{--       
-    <div class="mb-3">
-        <label for="kantor_cabang" class="form-label">Kantor Cabang</label>
-        <select class="form-select" name="kantor_cabang">
-         @foreach ($rutes as $rute)
-            @if (old('rute', $kurir->kantor_cabang) == $rute->id)
-                <option value="{{ $rute->id }}" selected>{{ $rute->kecamatan }}, {{ $rute->kabupatenkota }}</option>
-            @else
-                <option value="{{ $rute->id }}">{{ $rute->kecamatan }}, {{ $rute->kabupatenkota }}</option>
-            @endif
-        @endforeach
-        </select>
-    </div> --}}
+
+         <label>Tipe Driver</label>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="kurir_antar" name="kurir_antar" value="{{ old('1', $kurir->kurir_antar) }}">
+                <label class="form-check-label" for="kurir_antar">Kurir Antar</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="kurir_jemput" name="kurir_jemput" value="{{ old('1', $kurir->kurir_jemput) }}">
+                <label class="form-check-label" for="kurir_jemput">Kurir Jemput</label>
+            </div>
 
       <div class="mb-3">
         <label for="nama" class="form-label">Nama</label>
@@ -104,7 +101,7 @@
       
 
 
-      <button type="submit" class="btn btn-primary">Update Data Agen</button>
+      <button type="submit" class="btn btn-primary">Update Data Kurir</button>
     </form>
 </div>
 @endforeach

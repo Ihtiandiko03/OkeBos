@@ -20,7 +20,7 @@
           <td>{{ $kurirku->kurir_jemput ? 'Ya' : 'Tidak' }}</td>
           
           <td>
-                <a href="/dashboard/agen/kuriragen/{{ $kurirku->id }}" class="btn btn-info">View</a>
+                <a href="/dashboard/agen/kuriragen/showkurir?username={{ $kurirku->username }}" class="btn btn-info">View</a>
           </td>
         </tr>
         @endforeach

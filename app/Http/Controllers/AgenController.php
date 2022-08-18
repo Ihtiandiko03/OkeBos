@@ -30,14 +30,29 @@ class AgenController extends Controller
         ]);
     }
 
+    public function showKurir()
+    {
+        if (request('username')) {
+
+            $detailKurir = User::where('username', request('username'))->get();
+        }
+
+        return view('dashboard.agen.showKurir', [
+            "shows" => $detailKurir
+        ]);
+    }
+
 
     public function index()
     {
         $auth = Auth::user()->kantor_cabang;
         return view('dashboard.agen.index', [
-            'pengiriman' => Pengiriman::where('rute_awal', '=', $auth)->get()
+            'pengirimanDalamWilayah' => Pengiriman::where('rute_awal', '=', $auth)->where('jenis_pengiriman', '=', 'Dalam Kota')->get(),
+            'pengirimanAntarWilayah' => Pengiriman::where('rute_awal', '=', $auth)->where('jenis_pengiriman', '=', 'Luar Kota')->get()
         ]);
     }
+
+
 
     /**
      * Show the form for creating a new resource.

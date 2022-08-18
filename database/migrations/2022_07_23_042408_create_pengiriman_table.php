@@ -46,6 +46,11 @@ return new class extends Migration
             $table->string('nomorhp_penerima');
             $table->string('nomorwa_penerima');
 
+            //verifikasi barang
+            $table->boolean('verifikasi_kurir_ke_agen')->default(false);
+            $table->boolean('verifikasi_agen_ke_agen')->default(false);
+            $table->boolean('verifikasi_agen_ke_kurir')->default(false);
+
             $table->timestamps();
         });
     }
