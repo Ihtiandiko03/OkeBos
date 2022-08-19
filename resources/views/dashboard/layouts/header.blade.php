@@ -1,14 +1,32 @@
-<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="/">OKEBOS</a>
-  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="navbar-nav">
-    <div class="nav-item text-nowrap">
-      <form action="/logout" method="post">
-        @csrf
-        <button type="submit" class="nav-link px-3 bg-dark border-0"> Logout <span data-feather="log-out" class="align-text-bottom"></span></button>
-      </form>
+<header>
+    <h2>
+        <label for="nav-toggle">
+            <span class="las la-bars"></span>
+        </label>
+        Dashboard
+    </h2>
+    
+    <div class="user-wrapper">
+        {{-- <img src="img/Tes.JPG" width="40px" height="40px" alt="" /> --}}
+        <div>
+            <h4>{{ auth()->user()->nama }}</h4>
+            @if ((auth()->user()->agen) == 1)
+                <small>Agen</small>
+            @elseif((auth()->user()->kurir_antar) == 1 or (auth()->user()->kurir_jemput) == 1)
+                <small>Kurir</small>
+            @else
+                <small>Admin</small>
+            @endif
+        </div>
+        <div class="mx-5">
+            <form action="/logout" method="post">
+                 @csrf
+                <button type="submit" class="btn btn-warning"> Logout </button>
+            </form>
+
+        </div>
     </div>
-  </div>
+    <div>
+        
+    </div>
 </header>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Rute;
 use App\Models\Pengiriman;
+use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class ControllerFormPengiriman extends Controller
 {
@@ -65,10 +67,12 @@ class ControllerFormPengiriman extends Controller
             'rute_awal' => 'required',
             'rute_tujuan' => 'required',
             'user_id',
-            'nomor_resi' => 'required'
+            'nomor_resi' => 'required',
+            'foto_barang' => 'required|mimes:jpeg,png,jpg|max:1024',
         ]);
 
         $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['foto_barang'] = $request->file('foto_barang')->store('bukti_barang');
 
         Pengiriman::create($validatedData);
 
@@ -133,7 +137,15 @@ class ControllerFormPengiriman extends Controller
         $cekkurir2 = Pengiriman::where('id', $id)->get('verifikasi_agen_ke_kurir');
 
         if (($cekkurir[0]["verifikasi_kurir_ke_agen"] == false)) {
+            $validatedData = $request->validate([
+                'foto_barang' => 'required|mimes:jpeg,png,jpg|max:1024',
+            ]);
+
+            $validatedData['foto_barang'] = $request->file('foto_barang')->store('bukti_barang');
             Pengiriman::where('id', '=', $id)->update([
+                'foto_barang' => $validatedData['foto_barang'],
+                'harga' => $request['harga'],
+                'berat_barang' => $request['berat_barang'],
                 'verifikasi_kurir_ke_agen' => $request['verifikasi_kurir_ke_agen']
             ]);
         } else if (($cekkurir[0]["verifikasi_kurir_ke_agen"] == true) && ($cekagen[0]["verifikasi_agen_ke_agen"] == false)) {
@@ -146,9 +158,13 @@ class ControllerFormPengiriman extends Controller
             ]);
         }
 
-
-
-        return redirect('/dashboard/agen');
+        if ((Auth::user()->agen) == 1) {
+            return redirect('/dashboard/agen');
+        } else if ((Auth::user()->kurir_antar) == 1) {
+            return redirect('/dashboard/kurir');
+        } else if ((Auth::user()->kurir_jemput) == 1) {
+            return redirect('/dashboard/kurir');
+        }
     }
 
     // public function verifAgenKeAgen($id)

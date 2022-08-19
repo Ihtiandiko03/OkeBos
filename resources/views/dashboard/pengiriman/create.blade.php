@@ -40,6 +40,7 @@
         </select>
       </div>
 
+
               <input type="hidden" id="nomor_resi" name="nomor_resi" value="{{mt_rand(10000000000000, 99999999999999)}}">
 
       @can('kurir')
@@ -64,6 +65,7 @@
             </div>
         @enderror
       </div>
+
       @endcan
 
 
@@ -254,7 +256,9 @@
       </div>
 
 
-      <button type="submit" class="btn btn-primary">Buat Kiriman</button>
+      <button type="submit" class="btn btn-primary">Buat Kiriman
+        <a href="/dashboard/pengiriman/"></a>
+      </button>
     </form>
     </div>
 

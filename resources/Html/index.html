@@ -7,16 +7,84 @@
             rel="stylesheet"
             href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
         />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-        <link rel="stylesheet" href="{!! asset('css/index.css') !!}" />
+        <link rel="stylesheet" href="index.css" />
     </head>
     <body>
         <input type="checkbox" id="nav-toggle" />
-        
+        <div class="sidebar">
+            <div class="sidebar-brand">
+                <h2>
+                    <span class="lab la-accusoft"></span> <span>OkeBos</span>
+                </h2>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="index.html" class="active"
+                            ><span class="las la-igloo"></span>
+                            <span>Dashboard</span></a
+                        >
+                    </li>
+                    <li>
+                        <a href="saldo.html"
+                            ><span class="las la-users"></span>
+                            <span>Saldo</span></a
+                        >
+                    </li>
+                    <li>
+                        <a href="akun.html"
+                            ><span class="las la-clipboard-list"></span>
+                            <span>Daftar Akun</span></a
+                        >
+                    </li>
+                    <li>
+                        <a href="transaksi.html"
+                            ><span class="las la-receipt"></span>
+                            <span>Transaksi</span></a
+                        >
+                    </li>
+                    <li>
+                        <a href="laporan.html"
+                            ><span class="las la-user-circle"></span>
+                            <span>Laporan</span></a
+                        >
+                    </li>
+                    <li>
+                        <a href="" class="sub-btn"
+                            ><span class="las la-clipboard-list"></span>
+                            <span>Pengaturan</span></a
+                        >
+                        <div class="sub-menu">
+                            <ul>
+                                <li>
+                                    <a href="profil.html" class="sub-item"
+                                        >Profil</a
+                                    >
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href="rute.html" class="sub-item"
+                                        >Rute</a
+                                    >
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href="komisi.html" class="sub-item"
+                                        >Komisi</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
         <div class="main-content">
             <main>
-                {{-- <div class="cards">
+                <div class="cards">
                     <div class="card-single">
                         <div>
                             <h1>54</h1>
@@ -35,8 +103,8 @@
                             <span class="lab la-google-wallet"></span>
                         </div>
                     </div>
-                </div> --}}
-                {{-- <div class="recent-grid">
+                </div>
+                <div class="recent-grid">
                     <div class="projects">
                         <div class="card">
                             <div class="card-header">
@@ -168,25 +236,7 @@
                             </div>
                         </div>
                     </div>
-                </div> --}}
-
-                @include('dashboard.layouts.header')
-
-                <div class="container-fluid">
-                <div class="row">
-                    @include('dashboard.layouts.sidebar')
-
-                    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                    @yield('container')
-                    </main>
                 </div>
-                </div>
-
-
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-
-                    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
-                    <script src="/js/dashboard.js"></script>
             </main>
         </div>
     </body>

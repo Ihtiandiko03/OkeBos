@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengiriman;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KurirController extends Controller
 {
@@ -15,8 +16,10 @@ class KurirController extends Controller
      */
     public function index()
     {
+        $auth = Auth::user()->kantor_cabang;
         return view('dashboard.kurir.index', [
-            'pesanan_masuk' => Pengiriman::where('rute_awal', '=', "1")->get()
+            'pengirimanDalamWilayah' => Pengiriman::where('rute_awal', '=', $auth)->where('jenis_pengiriman', '=', 'Dalam Kota')->get(),
+            'pengirimanAntarWilayah' => Pengiriman::where('rute_awal', '=', $auth)->where('jenis_pengiriman', '=', 'Luar Kota')->get()
         ]);
     }
 

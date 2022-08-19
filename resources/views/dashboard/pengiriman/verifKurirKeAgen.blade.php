@@ -58,7 +58,7 @@
 
       <div class="mb-3">
         <label for="harga" class="form-label">Harga</label>
-        <input type="text" class="form-control @error('harga') is-invalid @enderror" id="harga" name="harga" value="{{ old('harga', $item->harga) }}" readonly>
+        <input type="text" class="form-control @error('harga') is-invalid @enderror" id="harga" name="harga" value="{{ old('harga', $item->harga) }}" >
         @error('harga')
             <div class="invalid-feedback">
                 {{ $message }}
@@ -68,12 +68,17 @@
 
       <div class="mb-3">
         <label for="berat_barang" class="form-label">Berat Barang</label>
-        <input type="text" class="form-control @error('berat_barang') is-invalid @enderror" id="berat_barang" name="berat_barang" value="{{ old('berat_barang', $item->berat_barang) }}" readonly>
+        <input type="text" class="form-control @error('berat_barang') is-invalid @enderror" id="berat_barang" name="berat_barang" value="{{ old('berat_barang', $item->berat_barang) }}" >
         @error('berat_barang')
             <div class="invalid-feedback">
                 {{ $message }}
             </div>
         @enderror
+      </div>
+
+      <div class="mb-3">
+        <label for="foto_barang" class="form-label">Foto Barang</label><br>
+        <input class="form-control" type="file" id="foto_barang" name="foto_barang" accept="image/png, image/jpeg, image/jpg">
       </div>
 
 
