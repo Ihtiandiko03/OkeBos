@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- =====BOX ICONS===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="assets/css/landing_page_login.css">
+
+        <title>OkeBos</title>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <img class="nav__logo" src="assets/img/OkeBos.png">
+                </div>
+                
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <div class="nav__close" id="nav-close">
+                        <i class='bx bx-x'></i>
+                    </div>
+
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="#pengiriman" class="nav__link">Pengiriman</a></li>
+                        <li class="nav__item"><a href="#Order" class="nav__link">Order</a></li>
+                        <li class="nav__item" class="profile__dropdown"><a href="#profile"><img src="assets/img/bae.jpg" class="profile__pict" alt="profile__img"></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home" id="home">
+                <div class="home__container bd-grid">
+                    <div class="home__img">
+                        <img src="assets/img/Vector.png" alt="" data-speed="2" class="move">
+                        <img src="assets/img/kurir_1.png" alt="" data-speed="-2" class="move">
+                    </div>
+
+                    <div class="home__data">
+                        <h1 class="home__title">Melayani Anda</h1>
+                        <h1 class="home__title2">Seperti Bos</h1>
+                        <p class="home__description">Mari Gunakan OkeBos <br> Untuk Pengiriman.</p>
+                        <a href="#" class="home__button">Mulai Pengiriman</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!--===== GSAP =====-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="assets/js/landing_page.js"></script>
+    </body>
+</html>
+
