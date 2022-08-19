@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Rute;
 use App\Models\Pengiriman;
 use Illuminate\Validation\Validator;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
+=======
+>>>>>>> ebb73bae1c468c9d6f734a35cd8a2cc1bfd8d205
 
 class ControllerFormPengiriman extends Controller
 {
