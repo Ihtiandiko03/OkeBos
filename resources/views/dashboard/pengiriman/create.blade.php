@@ -65,14 +65,7 @@
             </div>
         @enderror
       </div>
-<<<<<<< HEAD
 
-=======
-      <div class="mb-3">
-        <label for="foto_barang" class="form-label">Foto Barang</label><br>
-        <input class="form-control" type="file" id="foto_barang" name="foto_barang" accept="image/png, image/jpeg, image/jpg">
-      </div>
->>>>>>> ebb73bae1c468c9d6f734a35cd8a2cc1bfd8d205
       @endcan
 
 
