@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- =====BOX ICONS===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="assets/css/pengiriman_page.css">
+
+        <title>OkeBos</title>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <img class="nav__logo" src="assets/img/OkeBos.png">
+                </div>
+                
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <div class="nav__close" id="nav-close">
+                        <i class='bx bx-x'></i>
+                    </div>
+
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="#pengiriman" class="nav__link">Pengiriman</a></li>
+                        <li class="nav__item"><a href="#Order" class="nav__link">Order</a></li>
+                        <li class="nav__item" class="profile__dropdown"><a href="#profile"><img src="assets/img/bae.jpg" class="profile__pict" alt="profile__img"></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!--===== FORM =====-->
+        <div class="container">
+            <div class="title">
+                Pengiriman
+            </div>
+            <form action="#"> 
+                <div class="user-detail">
+                    <div class="input-field">
+                        <label>Nama</label> <br>
+                        <input type="text" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Nomor Handphone</label> <br>
+                        <input type="text">
+                    </div>
+                    <div class="input-field">
+                        <label>Alamat</label> <br>
+                        <input type="text">
+                    </div>
+                    <div class="input-field">
+                        <label>Provinsi</label> <br>
+                        <input type="text">
+                    </div>
+                    <div class="input-field"> 
+                        <label>Kota/Kabupaten</label> <br>
+                        <input type="text" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Kecamatan</label> <br>
+                        <input type="text" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Kode Pos</label> <br>
+                        <input type="text" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Jenis Barang</label> <br>
+                        <input type="text" required>
+                    </div>
+                </div>
+                <div class="input-field button">
+                    <input type="button" value="Submit">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
